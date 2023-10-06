@@ -4,10 +4,10 @@ on:
     types:
       - opened
 jobs:
-  comment:
+  close:
     runs-on: ubuntu-latest
     steps:
       - run: gh issue close $ISSUE --comment "Only PRs welcome ;)"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.MEMBRANEFRAMEWORKADMIN_TOKEN }}
           ISSUE: ${{ github.event.issue.html_url }}
