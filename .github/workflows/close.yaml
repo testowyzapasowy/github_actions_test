@@ -9,7 +9,8 @@ jobs:
     steps:
       - run: | 
           gh issue close $ISSUE --comment "Only PRs welcome ;)" --reason "not planned"
-          gh issue edit $ISSUE --add-project Smackore --add-label auto-closed-by-github-action
+          gh issue edit $ISSUE --add-project Smackore
+          gh project item-edit --id $ISSUE --field-id Status --project-id Smackore --text "New issues by community"
         env:
           GITHUB_TOKEN: ${{ secrets.MEMBRANEFRAMEWORKADMIN_TOKEN }}
           ISSUE: ${{ github.event.issue.html_url }}
