@@ -7,7 +7,7 @@ jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
-      - run: gh issue comment $ISSUE --body "Only PRs welcome ;)"
+      - run: gh issue close $ISSUE --comment "Only PRs welcome ;)"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE: ${{ github.event.issue.html_url }}
