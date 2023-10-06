@@ -7,7 +7,9 @@ jobs:
   close:
     runs-on: ubuntu-latest
     steps:
-      - run: gh issue close $ISSUE --comment "Only PRs welcome ;)" --reason "not planned"
+      - run: | 
+          gh issue close $ISSUE --comment "Only PRs welcome ;)" --reason "not planned"
+          gh issue edit $ISSUE --add-project Smackore
         env:
           GITHUB_TOKEN: ${{ secrets.MEMBRANEFRAMEWORKADMIN_TOKEN }}
           ISSUE: ${{ github.event.issue.html_url }}
