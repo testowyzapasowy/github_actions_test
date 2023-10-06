@@ -1,8 +1,7 @@
-name: Move issue in Smackore project on labeled
-
 on:
   issues:
-    - types: labeled
+    types: 
+      - labeled
 
 jobs:
   move_labeled:
