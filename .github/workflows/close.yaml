@@ -9,7 +9,7 @@ jobs:
     steps:
       - run: | 
           gh issue close $ISSUE --comment "Only PRs welcome ;)" --reason "not planned"
-          gh issue edit  --add-project "Smackore" --add-label auto-closed-by-github-action
+          gh issue edit $ISSUE --add-project "Smackore" --add-label auto-closed-by-github-action
           gh project item-edit --id $ISSUE --field-id status --project-id https://github.com/orgs/membraneframework/projects/19 --text "New issues by community"
         env:
           GITHUB_TOKEN: ${{ secrets.MEMBRANEFRAMEWORKADMIN_TOKEN }}
