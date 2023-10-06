@@ -7,7 +7,7 @@ jobs:
   close:
     runs-on: ubuntu-latest
     steps:
-      - run: gh issue close $ISSUE --comment "Only PRs welcome ;)"
+      - run: gh issue close $ISSUE --comment "Only PRs welcome ;)" --reason not_planned
         env:
           GITHUB_TOKEN: ${{ secrets.MEMBRANEFRAMEWORKADMIN_TOKEN }}
           ISSUE: ${{ github.event.issue.html_url }}
