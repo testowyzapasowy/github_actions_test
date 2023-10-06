@@ -8,7 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: | 
-          gh api -X POST /repos/${{ github.repository }}/labels -f name=auto-closed-by-github-action -f color=ff0000 -f description='Label abc'
           gh issue close $ISSUE --comment "Only PRs welcome ;)" --reason "not planned"
           gh issue edit $ISSUE --add-project Smackore --add-label auto-closed-by-github-action
         env:
