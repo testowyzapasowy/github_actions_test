@@ -1,0 +1,14 @@
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  move_labeled:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: konradpabjan/move-labeled-or-milestoned-issue@v2.0
+      with:
+        action-token: "${{ secrets.MEMBRANEFRAMEWORKADMIN_TOKEN }}"
+        project-url: "https://github.com/orgs/membraneframework/projects/19"
+        column-name: "New issues by community"
+        label-name: "auto-closed-by-github-action"

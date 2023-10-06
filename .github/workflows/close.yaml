@@ -8,9 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: | 
+          gh label create auto-closed-by-github-action
           gh issue close $ISSUE --comment "Only PRs welcome ;)" --reason "not planned"
-          gh issue edit $ISSUE --add-project Smackore
-          gh project item-edit --id $ISSUE --field-id Status --project-id https://github.com/orgs/membraneframework/projects/19 --text "New issues by community"
+          gh issue edit $ISSUE --add-project Smackore --add-label auto-closed-by-github-action
         env:
           GITHUB_TOKEN: ${{ secrets.MEMBRANEFRAMEWORKADMIN_TOKEN }}
           ISSUE: ${{ github.event.issue.html_url }}
+
