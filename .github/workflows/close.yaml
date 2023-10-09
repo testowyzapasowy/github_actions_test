@@ -12,8 +12,12 @@ jobs:
           gh issue edit $ISSUE_URL --add-project "Smackore" --add-label auto-closed-by-github-action
           sleep 10
 
+          echo "ALA MA KOTA $ISSUE_ID"
+
+
           export TICKET_ID="$(gh project item-list 19 --owner membraneframework | awk -v num="$ISSUE_ID" -v repo="$REPO" '{ numIdx = match($0, num); repoIdx = match($0, repo); if(numIdx && repoIdx) print $NF }')"
           echo "DUPA TICKET ID $TICKET_ID"
+          echo$(gh project item-list 19 --owner membraneframework | awk -v num="$ISSUE_ID" -v repo="$REPO" '{ numIdx = match($0, num); repoIdx = match($0, repo); if(numIdx && repoIdx) print $NF }')
 
 
 
