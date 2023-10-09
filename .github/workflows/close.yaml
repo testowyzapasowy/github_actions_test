@@ -8,10 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: | 
-          echo "Repository is ${{ github.repository }}"
-          echo "dupa $(gh issue view $ISSUE_URL)"
-
-          export TICKET_ID="$(gh project item-list 19 --owner membraneframework | awk '{ numIdx = match($0, $REPO); repoIdx = match($0, $REPO); if(numIdx && repoIdx) print $NF }')"
+          export TICKET_ID="$(gh project item-list 19 --owner membraneframework | awk '{ numIdx = match($0, $ISSUE_ID); repoIdx = match($0, $REPO); if(numIdx && repoIdx) print $NF }')"
           echo "DUPA TICKET ID $TICKET_ID"
           # gh issue close $ISSUE_URL --comment "Only PRs welcome ;)" --reason "not planned"
           gh issue edit $ISSUE_URL --add-project "Smackore" --add-label auto-closed-by-github-action
