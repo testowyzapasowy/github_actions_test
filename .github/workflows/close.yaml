@@ -15,9 +15,9 @@ jobs:
           echo "ALA MA KOTA $ISSUE_NUMBER"
 
 
-          export TICKET_ID="$(gh project item-list 19 --owner membraneframework | awk -v num="$ISSUE_NUMBER" -v repo="$REPO" '{ numIdx = match($0, num); repoIdx = match($0, repo); if(numIdx && repoIdx) print $NF }')"
+          export TICKET_ID="$(gh project item-list 19 --owner membraneframework | awk -v num="$ISSUE_NUMBER" '{ numIdx = match($0, num); repoIdx = match($0, /membraneframework\/membrane_core/); if(numIdx && repoIdx) print $NF }')"
           echo "DUPA TICKET ID $TICKET_ID"
-          echo$(gh project item-list 19 --owner membraneframework | awk -v num="$ISSUE_NUMBER" -v repo="$REPO" '{ numIdx = match($0, num); repoIdx = match($0, repo); if(numIdx && repoIdx) print $NF }')
+          echo$(gh project item-list 19 --owner membraneframework | awk -v num="$ISSUE_NUMBER" '{ numIdx = match($0, num); repoIdx = match($0, /membraneframework\/membrane_core/); if(numIdx && repoIdx) print $NF }')
 
 
 
