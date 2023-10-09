@@ -12,12 +12,12 @@ jobs:
           gh issue edit $ISSUE_URL --add-project "Smackore" --add-label auto-closed-by-github-action
           sleep 10
 
-          echo "ALA MA KOTA $ISSUE_ID"
+          echo "ALA MA KOTA $ISSUE_NUMBER"
 
 
-          export TICKET_ID="$(gh project item-list 19 --owner membraneframework | awk -v num="$ISSUE_ID" -v repo="$REPO" '{ numIdx = match($0, num); repoIdx = match($0, repo); if(numIdx && repoIdx) print $NF }')"
+          export TICKET_ID="$(gh project item-list 19 --owner membraneframework | awk -v num="$ISSUE_NUMBER" -v repo="$REPO" '{ numIdx = match($0, num); repoIdx = match($0, repo); if(numIdx && repoIdx) print $NF }')"
           echo "DUPA TICKET ID $TICKET_ID"
-          echo$(gh project item-list 19 --owner membraneframework | awk -v num="$ISSUE_ID" -v repo="$REPO" '{ numIdx = match($0, num); repoIdx = match($0, repo); if(numIdx && repoIdx) print $NF }')
+          echo$(gh project item-list 19 --owner membraneframework | awk -v num="$ISSUE_NUMBER" -v repo="$REPO" '{ numIdx = match($0, num); repoIdx = match($0, repo); if(numIdx && repoIdx) print $NF }')
 
 
 
@@ -25,7 +25,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.MEMBRANEFRAMEWORKADMIN_TOKEN }}
           ISSUE_URL: ${{ github.event.issue.html_url }}
-          ISSUE_ID: ${{ github.event.issue.id }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
           REPO: ${{ github.repository }}
 
 
