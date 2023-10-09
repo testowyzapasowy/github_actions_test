@@ -9,10 +9,15 @@ jobs:
     steps:
       - run: | 
           echo "Repository is ${{ github.repository }}"
-          echo "dupa $(gh issue view $ISSUE)"
-          gh issue close $ISSUE --comment "Only PRs welcome ;)" --reason "not planned"
-          gh issue edit $ISSUE --add-project "Smackore" --add-label auto-closed-by-github-action
-          gh project item-edit --id "$(gh issue view --json id -t '{{.id}}' $ISSUE)" --field-id PVTSSF_lADOAYE_z84AWEIBzgOGd1k --project-id PVT_kwDOAYE_z84AWEIB --text "fa223107"
+          echo "dupa $(gh issue view $ISSUE_URL)"
+
+          export TICKET_ID="$(gh project item-list 19 --owner membraneframework | awk '{ numIdx = match($0, $REPO); repoIdx = match($0, $REPO); if(numIdx && repoIdx) print $NF }')"
+          echo "DUPA TICKET ID $TICKET_ID"
+          # gh issue close $ISSUE_URL --comment "Only PRs welcome ;)" --reason "not planned"
+          gh issue edit $ISSUE_URL --add-project "Smackore" --add-label auto-closed-by-github-action
+          gh project item-edit --id "$(gh issue view --json id -t '{{.id}}' $ISSUE_URL)" --field-id PVTSSF_lADOAYE_z84AWEIBzgOGd1k --project-id PVT_kwDOAYE_z84AWEIB --text "fa223107"
         env:
           GITHUB_TOKEN: ${{ secrets.MEMBRANEFRAMEWORKADMIN_TOKEN }}
-          ISSUE: ${{ github.event.issue.html_url }}
+          ISSUE_URL: ${{ github.event.issue.html_url }}
+          ISSUE_ID: ${{ github.event.issue.id }}
+          REPO: ${{ github.repository }}
