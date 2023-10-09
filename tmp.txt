@@ -1,0 +1,30 @@
+Issue	[Tutorials] Add tutorial based on guide	620	membraneframework/membrane_core	PVTI_lADOAYE_z84AWEIBzgJngxk
+Issue	Prepare script for installing and building packages with brew 	608	membraneframework/membrane_core	PVTI_lADOAYE_z84AWEIBzgJjdVw
+Issue	prepare CI config for precompiling packages	609	membraneframework/membrane_core	PVTI_lADOAYE_z84AWEIBzgJjdZw
+Issue	Add API to handle precompiled dependencies in Bundlex	603	membraneframework/membrane_core	PVTI_lADOAYE_z84AWEIBzgJjcGE
+Issue	Create precompiled dependencies repositories	623	membraneframework/membrane_core	PVTI_lADOAYE_z84AWEIBzgJnkq8
+Issue	AAC.FDK.Encoder should support any number of channels	613	membraneframework/membrane_core	PVTI_lADOAYE_z84AWEIBzgJktJA
+Issue	AAC.Parser returning Ratio as the PTS unit	612	membraneframework/membrane_core	PVTI_lADOAYE_z84AWEIBzgJkoeg
+Issue	Bug in test on CI in membrane_mp4_plugin	615	membraneframework/membrane_core	PVTI_lADOAYE_z84AWEIBzgJk9L8
+Issue	Handle board automatization bot	622	membraneframework/membrane_core	PVTI_lADOAYE_z84AWEIBzgJnj3U
+Issue	Create Membrane SDK	618	membraneframework/membrane_core	PVTI_lADOAYE_z84AWEIBzgJnF6Y
+PullRequest	Bump version to 1.0.0-rc1	619	membraneframework/membrane_core	PVTI_lADOAYE_z84AWEIBzgJneDI
+Issue	Precompilation support in Bundlex	604	membraneframework/membrane_core	PVTI_lADOAYE_z84AWEIBzgJjbVY
+Issue	Adjust packages with native dependencies to use bundlex's precompiled dependencies	636	membraneframework/membrane_core	PVTI_lADOAYE_z84AWEIBzgJu-vc
+Issue	Implement `Inspect` protocol in component states	616	membraneframework/membrane_core	PVTI_lADOAYE_z84AWEIBzgJlBVg
+Issue	Write upgrading guide for v1.0.0-rc1	624	membraneframework/membrane_core	PVTI_lADOAYE_z84AWEIBzgJpMpw
+Issue	Open source ABR transcoder	621	membraneframework/membrane_core	PVTI_lADOAYE_z84AWEIBzgJng8I
+Issue	Test issue 29	29	membraneframework/github_actions_test	PVTI_lADOAYE_z84AWEIBzgJxnMU
+Issue	Support for streaming via stdio	627	membraneframework/membrane_core	PVTI_lADOAYE_z84AWEIBzgJtDEo
+Issue	Create membrane_ffmpeg_plugin	628	membraneframework/membrane_core	PVTI_lADOAYE_z84AWEIBzgJtDV8
+Issue	Refine & publish livebook examples	629	membraneframework/membrane_core	PVTI_lADOAYE_z84AWEIBzgJtDb0
+Issue	Support for Nerves	630	membraneframework/membrane_core	PVTI_lADOAYE_z84AWEIBzgJtEa0
+Issue	Research WARP integration	633	membraneframework/membrane_core	PVTI_lADOAYE_z84AWEIBzgJtF5M
+Issue	Make sure that all filters forward timestamps correctly	632	membraneframework/membrane_core	PVTI_lADOAYE_z84AWEIBzgJtFb4
+Issue	Example of using the new Video Compositor in a Membrane pipeline	631	membraneframework/membrane_core	PVTI_lADOAYE_z84AWEIBzgJtEkQ
+Issue	[demo/rtsp_to_hls] Link is not working	634	membraneframework/membrane_core	PVTI_lADOAYE_z84AWEIBzgJtmiU
+Issue	[rtmp_plugin] Examples don't work	635	membraneframework/membrane_core	PVTI_lADOAYE_z84AWEIBzgJtoWc
+Issue	CircleCI should fail when precompiled build fails	637	membraneframework/membrane_core	PVTI_lADOAYE_z84AWEIBzgJvGQg
+Issue	Test issue 24	24	membraneframework/github_actions_test	PVTI_lADOAYE_z84AWEIBzgJxamU
+Issue	Test issue 25	25	membraneframework/github_actions_test	PVTI_lADOAYE_z84AWEIBzgJxavY
+Issue	Test issue 26	26	membraneframework/github_actions_test	PVTI_lADOAYE_z84AWEIBzgJxb3A
