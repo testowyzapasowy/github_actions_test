@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: | 
+          echo "dupa $(gh issue view --json id -t '{{.id}}' $ISSUE)"
           gh issue close $ISSUE --comment "Only PRs welcome ;)" --reason "not planned"
           gh issue edit $ISSUE --add-project "Smackore" --add-label auto-closed-by-github-action
         env:
