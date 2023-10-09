@@ -11,7 +11,7 @@ jobs:
           echo "dupa $(gh issue view $ISSUE)"
           gh issue close $ISSUE --comment "Only PRs welcome ;)" --reason "not planned"
           gh issue edit $ISSUE --add-project "Smackore" --add-label auto-closed-by-github-action
-          gh project item-edit --id "$(gh issue view --json id -t '{{.id}}' $ISSUE)" --field-id status --project-id PVT_kwDOAYE_z84AWEIB --text "New issues by community"
+          gh project item-edit --id "$(gh issue view --json id -t '{{.id}}' $ISSUE)" --field-id PVTSSF_lADOAYE_z84AWEIBzgOGd1k --project-id PVT_kwDOAYE_z84AWEIB --text "fa223107"
         env:
           GITHUB_TOKEN: ${{ secrets.MEMBRANEFRAMEWORKADMIN_TOKEN }}
           ISSUE: ${{ github.event.issue.html_url }}
