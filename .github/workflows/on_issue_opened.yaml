@@ -9,6 +9,9 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
+    - name: Debug
+      run: |
+        find . 
     - name: Close issue 
       uses: ./.github/actions/close-issue
       with:
