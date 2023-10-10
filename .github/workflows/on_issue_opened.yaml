@@ -13,7 +13,7 @@ jobs:
       run: |
         find . 
     - name: Close issue 
-      uses: ./.github/actions/close-issue
+      uses: ./.github/actions/close_issue
       with:
         GITHUB_TOKEN: ${{ secrets.MEMBRANEFRAMEWORKADMIN_TOKEN }}
         ISSUE_URL: ${{ github.event.issue.html_url }}
