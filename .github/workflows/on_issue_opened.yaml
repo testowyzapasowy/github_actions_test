@@ -1,4 +1,4 @@
-name: Close issue when opened
+name: 'Close issue when opened'
 on:
   issues:
     types:
@@ -7,17 +7,9 @@ jobs:
   close:
     runs-on: ubuntu-latest
     steps:
-      - run: | 
-          gh label create closed-by-membrane-bot --description "Closed in GH action" --color #AF7D7A || true
-
-          gh issue edit $ISSUE_URL --add-project "Smackore" --add-label closed-by-membrane-bot
-          export REPO_PATTERN=$(echo $REPO | sed 's|/|\\/|; s|^|/|; s|$|/|')
-          export TICKET_ID="$(gh project item-list 19 --owner membraneframework --limit 100000 | awk -v num="$ISSUE_NUMBER" '{ numIdx = match($0, num); repoIdx = match($0, $REPO_PATTERN); if(numIdx && repoIdx) print $NF }')"
-          gh issue close $ISSUE_URL --comment "Only PRs welcome ;)" --reason "not planned"
-          sleep 10
-          gh project item-edit --id "$TICKET_ID" --field-id PVTSSF_lADOAYE_z84AWEIBzgOGd1k --project-id PVT_kwDOAYE_z84AWEIB --single-select-option-id "fa223107"
-        env:
-          GITHUB_TOKEN: ${{ secrets.MEMBRANEFRAMEWORKADMIN_TOKEN }}
-          ISSUE_URL: ${{ github.event.issue.html_url }}
-          ISSUE_NUMBER: ${{ github.event.issue.number }}
-          REPO: ${{ github.repository }}
+    - uses: ./.github/actions/close-issue.yaml
+      with:
+        TOKEN: ${{ secrets.MEMBRANEFRAMEWORKADMIN_TOKEN }}
+        ISSUE_URL: ${{ github.event.issue.html_url }}
+        ISSUE_NUMBER: ${{ github.event.issue.number }}
+        REPOSITORY: ${{ github.repository }}
