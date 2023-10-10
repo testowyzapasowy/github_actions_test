@@ -9,7 +9,7 @@ jobs:
     steps:
     - uses: ./.github/actions/close-issue.yaml
       with:
-        TOKEN: ${{ secrets.MEMBRANEFRAMEWORKADMIN_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.MEMBRANEFRAMEWORKADMIN_TOKEN }}
         ISSUE_URL: ${{ github.event.issue.html_url }}
         ISSUE_NUMBER: ${{ github.event.issue.number }}
         REPOSITORY: ${{ github.repository }}
