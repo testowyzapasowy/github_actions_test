@@ -7,8 +7,10 @@ jobs:
   close:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: ./.github/actions/close-issue
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Close issue 
+      uses: ./.github/actions/close-issue
       with:
         GITHUB_TOKEN: ${{ secrets.MEMBRANEFRAMEWORKADMIN_TOKEN }}
         ISSUE_URL: ${{ github.event.issue.html_url }}
