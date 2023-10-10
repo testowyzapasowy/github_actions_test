@@ -8,8 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: | 
-          gh label create auto-closed-by-github-action --description "Closed in GH action" --color E99695 || true
-          gh issue edit $ISSUE_URL --add-project "Smackore" --add-label auto-closed-by-github-action
+          gh label create closed-by-membrane-bot --description "Closed in GH action" --color #AF7D7A || true
+
+          gh issue edit $ISSUE_URL --add-project "Smackore" --add-label closed-by-membrane-bot
           export REPO_PATTERN=$(echo $REPO | sed 's|/|\\/|; s|^|/|; s|$|/|')
           export TICKET_ID="$(gh project item-list 19 --owner membraneframework --limit 100000 | awk -v num="$ISSUE_NUMBER" '{ numIdx = match($0, num); repoIdx = match($0, $REPO_PATTERN); if(numIdx && repoIdx) print $NF }')"
           gh issue close $ISSUE_URL --comment "Only PRs welcome ;)" --reason "not planned"
@@ -20,6 +21,3 @@ jobs:
           ISSUE_URL: ${{ github.event.issue.html_url }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           REPO: ${{ github.repository }}
-
-
-
