@@ -8,7 +8,7 @@ runs:
   using: 'composite'
   steps:
     - run: |
-        gh label create closed-by-membrane-bot --description "Automatically closed by Membrane bot" --color #EB3467 || true
+        gh label create closed-by-membrane-bot --description "Automatically closed by Membrane bot" --color EB3467 || true
       env:
         GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
       shell: bash
