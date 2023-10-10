@@ -7,7 +7,7 @@ jobs:
   close:
     runs-on: ubuntu-latest
     steps:
-    - uses: ./.github/actions/close-issue.yaml
+    - uses: ./.github/actions/close-issue
       with:
         GITHUB_TOKEN: ${{ secrets.MEMBRANEFRAMEWORKADMIN_TOKEN }}
         ISSUE_URL: ${{ github.event.issue.html_url }}
