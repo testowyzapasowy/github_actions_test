@@ -12,6 +12,10 @@ jobs:
     - name: Debug
       run: |
         find . 
+    - name: Create label if it not exists
+      uses: ./.github/actions/create_label
+      with:
+        GITHUB_TOKEN: ${{ secrets.MEMBRANEFRAMEWORKADMIN_TOKEN }}
     - name: Close issue 
       uses: ./.github/actions/close_issue
       with:
