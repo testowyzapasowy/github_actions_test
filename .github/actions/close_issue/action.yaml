@@ -27,7 +27,7 @@ runs:
         gh issue edit $ISSUE_URL --add-project "Smackore" --add-label closed-by-membrane-bot
 
         # export REPO_PATTERN=$(echo $REPOSITORY | sed 's|/|\\/|; s|^|/|; s|$|/|')
-        # export TICKET_ID="$(gh project item-list 19 --owner membraneframework --limit 100000 | awk -v num="$ISSUE_NUMBER" '{ numIdx = match($0, num); repoIdx = match($0, $REPO_PATTERN); if(numIdx && repoIdx) print $NF }')"
+        # export TICKET_ID="$(gh project item-list 19 --owner membraneframework --limit 10000000 | awk -v num="$ISSUE_NUMBER" '{ numIdx = match($0, num); repoIdx = match($0, $REPO_PATTERN); if(numIdx && repoIdx) print $NF }')"
         
         sleep 10
 
