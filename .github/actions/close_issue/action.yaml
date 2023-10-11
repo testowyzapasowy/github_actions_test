@@ -31,7 +31,7 @@ runs:
         
         sleep 10
         
-        gh project item-list 19 --owner membraneframework --format json --limit 10000000 | elixir get_ticket_id.exs "$ISSUE_URL" TICKET_ID
+        gh project item-list 19 --owner membraneframework --format json --limit 10000000 | elixir get_ticket_id.exs "$ISSUE_URL" | awk '/TICKET_ID/{print $2}'
 
         echo "TICKET ID IN ENV $TICKET_ID"
 
