@@ -1,5 +1,5 @@
 name: 'Create label'
-description: 'Creates a label closed-by-membrane-bot. Does nothing, if such a label already exists.'
+description: 'Creates a label closed-by-membrane-bot, if it doesn't exist.'
 inputs:
   GITHUB_TOKEN:
     description: 'GitHub token'

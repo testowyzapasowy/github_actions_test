@@ -25,9 +25,12 @@ runs:
       uses: actions/checkout@v3
     - run: |
         gh issue edit $ISSUE_URL --add-project "Smackore" --add-label closed-by-membrane-bot
-        export REPO_PATTERN=$(echo $REPOSITORY | sed 's|/|\\/|; s|^|/|; s|$|/|')
-        sleep 10
+
+        # export REPO_PATTERN=$(echo $REPOSITORY | sed 's|/|\\/|; s|^|/|; s|$|/|')
         # export TICKET_ID="$(gh project item-list 19 --owner membraneframework --limit 100000 | awk -v num="$ISSUE_NUMBER" '{ numIdx = match($0, num); repoIdx = match($0, $REPO_PATTERN); if(numIdx && repoIdx) print $NF }')"
+        
+        sleep 10
+
         export TICKET_ID="$(gh project item-list 19 --owner membraneframework --format json | elixir get_ticket_id.exs "$ISSUE_URL")"
         gh issue close $ISSUE_URL --comment "Only PRs welcome ;)" --reason "not planned"
         sleep 10
