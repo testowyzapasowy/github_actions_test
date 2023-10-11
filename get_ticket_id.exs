@@ -4,7 +4,7 @@ Mix.install([:json])
 
 Process.sleep(1000)
 
-# :ok =
+{_collectable, 0} =
   IO.read(:stdio, :eof)
   |> IO.inspect(label: "STDIN STRING", limit: :infinity)
   |> JSON.decode!()
@@ -13,4 +13,5 @@ Process.sleep(1000)
   |> Enum.find(& &1["content"]["url"] == issue_url)
   |> Map.get("id")
   |> IO.inspect(label: "TICKET ID")
-  |> System.shell("export #{ticket_id_env}=\"#{&1}\"")
+  |> then(& "export #{ticket_id_env}=\"#{&1}\"")
+  |> System.shell()
