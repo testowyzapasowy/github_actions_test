@@ -1,6 +1,6 @@
 Mix.install([:json])
 
-[issue_url] = System.argv() |> IO.inspect(label: "ARGV")
+[issue_url, target_file_name] = System.argv() |> IO.inspect(label: "ARGV")
 
 Process.sleep(1000)
 
@@ -13,4 +13,4 @@ Process.sleep(1000)
   |> Enum.find(& &1["content"]["url"] == issue_url)
   |> Map.get("id")
   |> IO.inspect(label: "TICKET ID")
-  |> IO.binwrite()
+  |> File.write!(target_file_name)
