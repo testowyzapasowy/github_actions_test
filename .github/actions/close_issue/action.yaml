@@ -31,9 +31,9 @@ runs:
         
         sleep 10
         
-        gh project item-list 19 --owner membraneframework --format json --limit 10000000 | elixir get_ticket_id.exs "$ISSUE_URL" ticket_id.txt
-        export TICKET_ID="$(cat ticket_id.txt)"
-        rm ticket_id.txt
+        gh project item-list 19 --owner membraneframework --format json --limit 10000000 | elixir get_ticket_id.exs "$ISSUE_URL" TICKET_ID
+
+        echo "TICKET ID IN ENV $TICKET_ID"
 
         gh issue close $ISSUE_URL --comment "Only PRs welcome ;)" --reason "not planned"
         sleep 10

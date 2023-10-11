@@ -1,10 +1,10 @@
 Mix.install([:json])
 
-[issue_url, target_file_name] = System.argv() |> IO.inspect(label: "ARGV")
+[issue_url, ticket_id_env] = System.argv() |> IO.inspect(label: "ARGV")
 
 Process.sleep(1000)
 
-:ok =
+# :ok =
   IO.read(:stdio, :eof)
   |> IO.inspect(label: "STDIN STRING", limit: :infinity)
   |> JSON.decode!()
@@ -13,4 +13,4 @@ Process.sleep(1000)
   |> Enum.find(& &1["content"]["url"] == issue_url)
   |> Map.get("id")
   |> IO.inspect(label: "TICKET ID")
-  |> File.write!(target_file_name)
+  |> System.shell("export #{ticket_id_env}=\"#{&1}\"")
