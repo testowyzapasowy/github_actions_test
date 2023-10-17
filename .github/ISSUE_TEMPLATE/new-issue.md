@@ -1,5 +1,5 @@
 ---
-name: Issue template
+name: New issue
 about: Use this a template for all newly created issues in this repository.
 title: "[DO NOT OPEN]"
 labels: ''
