@@ -7,13 +7,10 @@ jobs:
   close:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
+    - name: Checkout membrane_core
       uses: actions/checkout@v3
       with:
         repository: membraneframework/membrane_core
-    - name: Debug
-      run: |
-        find . 
     - name: Create label if it not exists
       uses: ./.github/actions/create_label
       with:
