@@ -11,9 +11,6 @@ jobs:
       uses: actions/checkout@v3
       with:
         repository: membraneframework/membrane_core
-    - name: Debug
-      run: | 
-        find .
     - name: Close issue 
       uses: ./.github/actions/close_issue
       with:
