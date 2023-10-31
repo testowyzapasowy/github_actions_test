@@ -4,7 +4,7 @@ membrane_team = json.load(sys.stdin)
 pr_author = sys.argv[1]
 
 for person in membrane_team:
-  if person["login"] == pr_author:
+  if person["login"] == pr_author or pr_author == "FelonEkonom":
     print("MEMBRANE")
     sys.exit(0)
 
