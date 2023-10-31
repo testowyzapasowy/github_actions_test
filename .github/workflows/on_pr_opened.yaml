@@ -21,7 +21,7 @@ jobs:
 
           if [ "$AUTHOR_ORIGIN" == "COMMUNITY" ]
           then
-            gh pr edit --add-project Smackore
+            gh pr edit "$PR_URL" --add-project Smackore
             sleep 10
 
             export TICKET_ID=$(gh project item-list $PROJECT_NUMBER --owner membraneframework --format json --limit 10000000 | python get_ticket_id.py "$PR_URL")
