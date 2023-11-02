@@ -1,6 +1,6 @@
-name: 'Puts PR in "New issues by community" column in the Smackore project'
+name: Add PR to Smackore project board, if the author is from outside Membrane Team
 on:
-  pull_request:
+  pull_request_target:
     types:
       - opened
 jobs:
@@ -11,7 +11,7 @@ jobs:
       uses: actions/checkout@v3
       with:
         repository: membraneframework/membrane_core
-    - name: Add PR to Smackore project board, if the author is from outside Membrane Team
+    - name: Puts PR in "New issues by community" column in the Smackore project, if the author is from outside Membrane Team
       uses: ./.github/actions/add_pr_to_smackore_board
       with:
         GITHUB_TOKEN: ${{ secrets.MEMBRANEFRAMEWORKADMIN_TOKEN }}
