@@ -4,7 +4,7 @@ on:
     types:
       - opened
 jobs:
-  add_to_project_board:
+  maybe_add_to_project_board:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout membrane_core
