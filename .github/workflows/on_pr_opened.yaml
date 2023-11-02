@@ -1,34 +1,19 @@
-name: Puts PR in a proper column in the Smackore project
+name: 'Puts PR in "New issues by community" column in the Smackore project'
 on:
   pull_request:
     types:
       - opened
-      - reopened
-
 jobs:
-  move_to_proper_column:
+  add_to_project_board:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - run: | 
-          export PROJECT_NUMBER=19
-          export PROJECT_ID=PVT_kwDOAYE_z84AWEIB
-          export STATUS_FIELD_ID=PVTSSF_lADOAYE_z84AWEIBzgOGd1k
-          export TARGET_COLUMN_ID=e6b1ee10
-          
-          export AUTHOR_ORIGIN=$(curl --request GET --url "https://api.github.com/orgs/membraneframework/members" --header "Authorization: Bearer $GH_TOKEN" -s | python get_author_origin.py $AUTHOR_LOGIN)
-
-          if [ "$AUTHOR_ORIGIN" == "COMMUNITY" ]
-          then
-            gh pr edit "$PR_URL" --add-project Smackore
-            sleep 10
-
-            export TICKET_ID=$(gh project item-list $PROJECT_NUMBER --owner membraneframework --format json --limit 10000000 | python get_ticket_id.py "$PR_URL")
-            gh project item-edit --id $TICKET_ID --field-id $STATUS_FIELD_ID --project-id $PROJECT_ID --single-select-option-id $TARGET_COLUMN_ID
-          fi
-
-        env:
-          GH_TOKEN: ${{ secrets.MEMBRANEFRAMEWORKADMIN_TOKEN }}
-          AUTHOR_LOGIN: ${{ github.event.pull_request.user.login }}
-          PR_URL: ${{ github.event.pull_request.html_url }}
+    - name: Checkout membrane_core
+      uses: actions/checkout@v3
+      with:
+        repository: membraneframework/membrane_core
+    - name: Add PR to Smackore project board, if the author is from outside Membrane Team
+      uses: ./.github/actions/add_pr_to_smackore_board
+      with:
+        GITHUB_TOKEN: ${{ secrets.MEMBRANEFRAMEWORKADMIN_TOKEN }}
+        AUTHOR_LOGIN: ${{ github.event.pull_request.user.login }}
+        PR_URL: ${{ github.event.pull_request.html_url }}
