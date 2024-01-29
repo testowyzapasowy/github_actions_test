@@ -11,6 +11,7 @@ jobs:
       uses: actions/checkout@v3
       with:
         repository: membraneframework/membrane_core
+        path: python-scripts-patch
     - name: Puts PR in "New PRs by community" column in the Smackore project, if the author is from outside Membrane Team
       uses: ./.github/actions/add_pr_to_smackore_board
       with:
