@@ -13,10 +13,10 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - name: Checkout membrane_core code
+    - name: Checkout github_actions_test code
       uses: actions/checkout@v3
       with:
-        repository: membraneframework/membrane_core
+        repository: membraneframework/github_actions_test
     - name: Maybe add PR to board and set ticket status
       run: | 
           # currently this may cause github action crash, more info here: https://github.com/membraneframework/membrane_core/issues/749
