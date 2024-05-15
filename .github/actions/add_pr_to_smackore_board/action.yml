@@ -37,6 +37,16 @@ runs:
             sleep 10
 
             export TICKET_ID=$(gh project item-list $PROJECT_NUMBER --owner membraneframework --format json --limit 10000000 | python scripts/python/get_ticket_id.py "$PR_URL")
+            
+            echo "TICKET_ID"
+            echo $TICKET_ID
+            echo "STATUS_FIELD_ID"
+            echo $STATUS_FIELD_ID
+            echo "PROJECT_ID"
+            echo $PROJECT_ID
+            echo "TARGET_COLUMN_ID"
+            echo $TARGET_COLUMN_ID
+            
             gh project item-edit --id $TICKET_ID --field-id $STATUS_FIELD_ID --project-id $PROJECT_ID --single-select-option-id $TARGET_COLUMN_ID
           fi
 
