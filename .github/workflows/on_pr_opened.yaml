@@ -7,10 +7,10 @@ jobs:
   maybe_add_to_project_board:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout membrane_core
+    - name: Checkout github_actions_test
       uses: actions/checkout@v3
       with:
-        repository: membraneframework/membrane_core
+        repository: membraneframework/github_actions_test
     - name: Puts PR in "New PRs by community" column in the Smackore project, if the author is from outside Membrane Team
       uses: ./.github/actions/add_pr_to_smackore_board
       with:
