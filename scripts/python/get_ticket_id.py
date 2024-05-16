@@ -14,7 +14,9 @@ try:
     print(id)
 except:
     print("An exception occurred in get_ticket.py")
-    sys.exit(1)
-    # print(full_json)
+    print("provided json")
+    print(full_json)
     # print("provided PR_URL:", pr_url)
+    sys.exit(1)
+
 
