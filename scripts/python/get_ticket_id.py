@@ -16,8 +16,10 @@ for item in project_items:
         if item["content"]["url"] == pr_url:
             item_id = item["id"]
             break
-print(item_id)
 
 if item_id == None:
     print("An exception occurred in get_ticket.py (item_id == None)")
     sys.exit(1)
+else:
+    print(item_id)
+
